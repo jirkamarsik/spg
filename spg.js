@@ -23,7 +23,7 @@ if (undefined === homeDir) {
 
 var Files = Java.type("java.nio.file.Files");
 var Paths = Java.type("java.nio.file.Paths");
-var JString = Java.type("java.lang.String");
+var Collections = Java.type("java.util.Collections");
 var extension = "*.{htm,html,xml}";
 var debug = false;
 var parameterExtension = ".json";
@@ -77,5 +77,5 @@ function write(content, file) {
         print("Writing ${content} to ${output}");
     }
     print("Writing: ${file}")
-    Files.write(Paths.get(output), new JString(content).bytes);
+    Files.write(Paths.get(output), Collections.singletonList(content));
 }
